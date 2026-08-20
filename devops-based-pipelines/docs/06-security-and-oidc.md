@@ -1,0 +1,1 @@
+(OIDC, Workload Identity Federation, GitHub Secrets, least privilege)
