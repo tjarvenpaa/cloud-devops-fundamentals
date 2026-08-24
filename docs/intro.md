@@ -19,7 +19,7 @@ Kurssin suoritettuaan opiskelija osaa:
 
 **Viikko 1**: Pilvipalveluiden perusteet
 Sisältö
-* Pilvipalveluiden peruskäsitteet
+* Pilvipalveluiden peruskäsitteet. Käyttäen AWS Cloud foundations sertifikaattiin johtavaa koulutusta materiaalina
 * IaaS, PaaS ja SaaS
 * Public, Private ja Hybrid Cloud
 * AWS Global Infrastructure
@@ -149,3 +149,6 @@ Opiskelija ymmärtää modernin DevOps-putken rakenteen ja osaa hyödyntää aut
 Kurssi etenee seuraavan kehityspolun mukaisesti:
 ![timeline-iac.png](https://github.com/tjarvenpaa/cloud-devops-fundamentals/blob/main/docs/images/timeline-IaC.png)
 Kurssin lopussa opiskelija ymmärtää, kuinka moderni pilvipohjainen sovellusympäristö suunnitellaan, toteutetaan, automatisoidaan ja ylläpidetään DevOps-periaatteiden mukaisesti.
+
+# **Arviointi**
+Arviointi tapahtuu asteikolla 0-5, perusteena tehdyt harjoitukset, projektit, itsearviointi ja tentti. Tarkempi arviointi / pisteytys päivittyy tähän myöhemmin.
