@@ -8,7 +8,7 @@
 
 ---
 
-# Kokonaisarkkitehtuuri
+## Kokonaisarkkitehtuuri
 
 Developer
 
@@ -46,7 +46,7 @@ Smoke Test
 
 ---
 
-# Ympäristöt
+## Ympäristöt
 
 Tyypilliset ympäristöt:
 
@@ -58,7 +58,7 @@ Ympäristöt vähentävät virheiden vaikutuksia.
 
 ---
 
-# Secrets
+## Secrets
 
 CI/CD-putket tarvitsevat tunnuksia.
 
@@ -68,11 +68,11 @@ Tunnuksia ei koskaan tallenneta:
 - Terraform-koodiin
 - Kubernetes-manifesteihin
 
-Ne säilytetään salaisuuksien hallintajärjestelmässä.
+Ne säilytetään [salaisuuksien hallintajärjestelmässä](https://docs.github.com/en/actions/concepts/security/secrets).
 
 ---
 
-# Smoke Test
+## Smoke Test
 
 Smoke Test on kevyt tarkistus.
 
@@ -85,7 +85,7 @@ Tarkoitus on havaita ilmeiset virheet nopeasti.
 
 ---
 
-# Rollback
+## Rollback
 
 Käyttöönotto voi epäonnistua.
 
@@ -98,7 +98,7 @@ Deployment-version palauttamisen.
 
 ---
 
-# Mitä opiskelijan tulee osata?
+## Mitä opiskelijan tulee osata?
 
 Opiskelijan tulee osata:
 
