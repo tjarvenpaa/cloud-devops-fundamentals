@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="fi">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Cloud Infrastructure and DevOps Fundamentals</title>
+  </head>
+  <body style="margin: 0; padding: 0; background: #f5f7fa; color: #1f2933; font-family: Arial, Helvetica, sans-serif; line-height: 1.7;">
+    <div style="max-width: 960px; margin: 24px auto; background: #ffffff; border: 1px solid #dfe6ee; border-radius: 10px; box-shadow: 0 4px 14px rgba(15, 23, 42, 0.06); padding: 32px 36px;">
+      <h1 style="margin-top: 0; font-size: 2.1rem; color: #0f172a; line-height: 1.3; border-bottom: 3px solid #dbeafe; padding-bottom: 12px;">Cloud Infrastructure and DevOps Fundamentals (10 op)</h1>
+
+      <h2 style="margin-top: 30px; font-size: 1.5rem; color: #1d4ed8; line-height: 1.3;">Kurssin kuvaus</h2>
+      <p style="font-size: 1rem; margin: 0 0 1em 0;">
+        Kurssilla tutustutaan pilvipalveluiden, infrastruktuurin hallinnan sekä
+        DevOps-ajattelun perusteisiin. Kurssin ensimmäisessä osassa keskitytään
+        pilviympäristöihin AWS:n avulla, minkä jälkeen siirrytään kohti moderneja
+        DevOps-käytäntöjä, kuten konttiteknologioita, Infrastructure as Codea
+        (IaC), Kubernetesia sekä CI/CD-automaatiota.
+      </p>
+      <p style="font-size: 1rem; margin: 0 0 1em 0;">
+        Kurssin tavoitteena on antaa opiskelijalle valmiudet ymmärtää ja toteuttaa
+        nykyaikaisia pilvipohjaisia ratkaisuja sekä automatisoituja
+        käyttöönottoprosesseja. Kurssin aikana tehdyt harjoitukset muodostavat
+        yhtenäisen oppimispolun, jossa siirrytään manuaalisesti rakennetuista
+        ympäristöistä kohti automatisoituja ratkaisuja.
+      </p>
+
+      <h2 style="margin-top: 30px; font-size: 1.5rem; color: #1d4ed8; line-height: 1.3;">Osaamistavoitteet</h2>
+      <p style="font-size: 1rem; margin: 0 0 1em 0;">Kurssin suoritettuaan opiskelija osaa:</p>
+      <ul style="padding-left: 22px; margin: 0 0 1em 0;">
+        <li style="margin-bottom: 6px;">selittää pilvipalveluiden keskeiset palvelumallit ja käyttötarkoitukset</li>
+        <li style="margin-bottom: 6px;">hyödyntää AWS:n keskeisiä infrastruktuuripalveluita</li>
+        <li style="margin-bottom: 6px;">suunnitella turvallisen ja korkean käytettävyyden pilviarkkitehtuurin</li>
+        <li style="margin-bottom: 6px;">käyttää Linux-palvelimia pilviympäristössä</li>
+        <li style="margin-bottom: 6px;">ottaa käyttöön verkkosovelluksen pilvipalvelussa</li>
+        <li style="margin-bottom: 6px;">hyödyntää Docker-kontteja sovellusten paketointiin</li>
+        <li style="margin-bottom: 6px;">toteuttaa infrastruktuuria Infrastructure as Code -periaatteella Terraformin avulla</li>
+        <li style="margin-bottom: 6px;">käyttää Kubernetesia konttisovellusten hallintaan</li>
+        <li style="margin-bottom: 6px;">ymmärtää CI/CD-putkien toimintaperiaatteet ja automatisoinnin merkityksen DevOps-ympäristöissä</li>
+        <li style="margin-bottom: 6px;">tunnistaa keskeiset erot eri pilvipalvelualustojen välillä</li>
+      </ul>
+
+      <div style="background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 8px; padding: 18px 20px; margin-top: 18px;">
+        <h3 style="margin-top: 0; font-size: 1.15rem; color: #0f172a; line-height: 1.3;"><span style="font-weight: 700;">Viikko 1</span>: Pilvipalveluiden perusteet</h3>
+        <p style="font-size: 1rem; margin: 0 0 0.5em 0; font-weight: 700; color: #0f172a;">Sisältö</p>
+        <ul style="padding-left: 22px; margin: 0 0 1em 0;">
+          <li style="margin-bottom: 6px;">Pilvipalveluiden peruskäsitteet. Käyttäen AWS Cloud foundations sertifikaattiin johtavaa koulutusta materiaalina</li>
+          <li style="margin-bottom: 6px;">IaaS, PaaS ja SaaS</li>
+          <li style="margin-bottom: 6px;">Public, Private ja Hybrid Cloud</li>
+          <li style="margin-bottom: 6px;">AWS Global Infrastructure</li>
+          <li style="margin-bottom: 6px;">Shared Responsibility Model</li>
+          <li style="margin-bottom: 6px;">Pilvipalveluiden kustannusmallit</li>
+        </ul>
+
+        <p style="font-size: 1rem; margin: 0 0 0.5em 0; font-weight: 700; color: #0f172a;">Harjoitukset</p>
+        <ul style="padding-left: 22px; margin: 0 0 1em 0;">
+          <li style="margin-bottom: 6px;">AWS Pricing Calculator</li>
+          <li style="margin-bottom: 6px;">Pilvipalveluiden kustannusten arviointi eri käyttöskenaarioissa</li>
+        </ul>
+
+        <p style="font-size: 1rem; margin: 0 0 0.5em 0; font-weight: 700; color: #0f172a;">Osaamistavoite</p>
+        <p style="font-size: 1rem; margin: 0;">Opiskelija ymmärtää pilvipalveluiden toimintamallit, hinnoittelun perusteet sekä AWS:n keskeisen palvelurakenteen.</p>
+      </div>
+
+      <div style="background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 8px; padding: 18px 20px; margin-top: 18px;">
+        <h3 style="margin-top: 0; font-size: 1.15rem; color: #0f172a; line-height: 1.3;"><span style="font-weight: 700;">Viikko 2</span>: Verkot ja tietoturva pilvessä</h3>
+        <p style="font-size: 1rem; margin: 0 0 0.5em 0; font-weight: 700; color: #0f172a;">Sisältö</p>
+        <ul style="padding-left: 22px; margin: 0 0 1em 0;">
+          <li style="margin-bottom: 6px;">VPC</li>
+          <li style="margin-bottom: 6px;">CIDR</li>
+          <li style="margin-bottom: 6px;">Subnetit</li>
+          <li style="margin-bottom: 6px;">Reititys</li>
+          <li style="margin-bottom: 6px;">Internet Gateway</li>
+          <li style="margin-bottom: 6px;">NAT Gateway</li>
+          <li style="margin-bottom: 6px;">Security Groups</li>
+          <li style="margin-bottom: 6px;">IAM-perusteet</li>
+        </ul>
+
+        <p style="font-size: 1rem; margin: 0 0 0.5em 0; font-weight: 700; color: #0f172a;">Harjoitukset</p>
+        <ul style="padding-left: 22px; margin: 0 0 1em 0;">
+          <li style="margin-bottom: 6px;">VPC-arkkitehtuurin suunnittelu</li>
+          <li style="margin-bottom: 6px;">IAM-politiikkojen analysointi ja koventaminen</li>
+        </ul>
+
+        <p style="font-size: 1rem; margin: 0 0 0.5em 0; font-weight: 700; color: #0f172a;">Osaamistavoite</p>
+        <p style="font-size: 1rem; margin: 0;">Opiskelija osaa suunnitella pilviympäristön verkkoarkkitehtuurin sekä soveltaa vähimmän oikeuden periaatetta käyttöoikeuksien hallinnassa.</p>
+      </div>
+
+      <div style="background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 8px; padding: 18px 20px; margin-top: 18px;">
+        <h3 style="margin-top: 0; font-size: 1.15rem; color: #0f172a; line-height: 1.3;"><span style="font-weight: 700;">Viikko 3</span>: Tallennus ja tietokannat</h3>
+        <p style="font-size: 1rem; margin: 0 0 0.5em 0; font-weight: 700; color: #0f172a;">Sisältö</p>
+        <ul style="padding-left: 22px; margin: 0 0 1em 0;">
+          <li style="margin-bottom: 6px;">Amazon S3</li>
+          <li style="margin-bottom: 6px;">Amazon EBS</li>
+          <li style="margin-bottom: 6px;">Amazon RDS</li>
+          <li style="margin-bottom: 6px;">Tallennustekniikoiden valinta</li>
+          <li style="margin-bottom: 6px;">Kustannukset ja suorituskyky</li>
+        </ul>
+
+        <p style="font-size: 1rem; margin: 0 0 0.5em 0; font-weight: 700; color: #0f172a;">Harjoitukset</p>
+        <ul style="padding-left: 22px; margin: 0 0 1em 0;">
+          <li style="margin-bottom: 6px;">Tallennusratkaisujen suunnittelu erilaisiin käyttötapauksiin</li>
+          <li style="margin-bottom: 6px;">AWS Academy -harjoitukset</li>
+        </ul>
+
+        <p style="font-size: 1rem; margin: 0 0 0.5em 0; font-weight: 700; color: #0f172a;">Osaamistavoite</p>
+        <p style="font-size: 1rem; margin: 0;">Opiskelija osaa valita käyttötarkoitukseen soveltuvan tallennusratkaisun sekä perustella valintansa.</p>
+      </div>
+
+      <div style="background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 8px; padding: 18px 20px; margin-top: 18px;">
+        <h3 style="margin-top: 0; font-size: 1.15rem; color: #0f172a; line-height: 1.3;"><span style="font-weight: 700;">Viikko 4</span>: Linux pilviympäristössä</h3>
+        <p style="font-size: 1rem; margin: 0 0 0.5em 0; font-weight: 700; color: #0f172a;">Sisältö</p>
+        <ul style="padding-left: 22px; margin: 0 0 1em 0;">
+          <li style="margin-bottom: 6px;">Linux-palvelimen hallinta</li>
+          <li style="margin-bottom: 6px;">SSH-yhteydet</li>
+          <li style="margin-bottom: 6px;">Pakettienhallinta</li>
+          <li style="margin-bottom: 6px;">Cloud-init</li>
+          <li style="margin-bottom: 6px;">EC2-metatiedot</li>
+          <li style="margin-bottom: 6px;">Palveluiden ylläpito</li>
+        </ul>
+
+        <p style="font-size: 1rem; margin: 0 0 0.5em 0; font-weight: 700; color: #0f172a;">Harjoitukset</p>
+        <ul style="padding-left: 22px; margin: 0 0 1em 0;">
+          <li style="margin-bottom: 6px;">AWS Academy -harjoitukset</li>
+          <li style="margin-bottom: 6px;">Linux-palvelimen hallintatehtävät</li>
+        </ul>
+
+        <p style="font-size: 1rem; margin: 0 0 0.5em 0; font-weight: 700; color: #0f172a;">Osaamistavoite</p>
+        <p style="font-size: 1rem; margin: 0;">Opiskelija osaa käyttää Linux-palvelinta pilviympäristössä sekä suorittaa yleisiä ylläpitotehtäviä.</p>
+      </div>
+
+      <div style="background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 8px; padding: 18px 20px; margin-top: 18px;">
+        <h3 style="margin-top: 0; font-size: 1.15rem; color: #0f172a; line-height: 1.3;"><span style="font-weight: 700;">Viikko 5</span>: Verkkosovelluksen käyttöönotto pilvessä</h3>
+        <p style="font-size: 1rem; margin: 0 0 0.5em 0; font-weight: 700; color: #0f172a;">Sisältö</p>
+        <ul style="padding-left: 22px; margin: 0 0 1em 0;">
+          <li style="margin-bottom: 6px;">LAMP-ympäristö</li>
+          <li style="margin-bottom: 6px;">Apache</li>
+          <li style="margin-bottom: 6px;">PHP</li>
+          <li style="margin-bottom: 6px;">MySQL / MariaDB</li>
+          <li style="margin-bottom: 6px;">Amazon RDS</li>
+          <li style="margin-bottom: 6px;">Amazon S3</li>
+          <li style="margin-bottom: 6px;">HTTPS ja SSL-sertifikaatit</li>
+        </ul>
+
+        <p style="font-size: 1rem; margin: 0 0 0.5em 0; font-weight: 700; color: #0f172a;">Projekti</p>
+        <ul style="padding-left: 22px; margin: 0 0 1em 0;">
+          <li style="margin-bottom: 6px;">WordPress-sivuston käyttöönotto AWS:ssä</li>
+        </ul>
+
+        <p style="font-size: 1rem; margin: 0 0 0.5em 0; font-weight: 700; color: #0f172a;">Osaamistavoite</p>
+        <p style="font-size: 1rem; margin: 0;">Opiskelija osaa ottaa käyttöön pilvessä toimivan verkkosovelluksen hyödyntäen useita AWS-palveluita.</p>
+      </div>
+
+      <div style="background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 8px; padding: 18px 20px; margin-top: 18px;">
+        <h3 style="margin-top: 0; font-size: 1.15rem; color: #0f172a; line-height: 1.3;"><span style="font-weight: 700;">Viikko 6</span>: Docker ja sovellusten kontitus</h3>
+        <p style="font-size: 1rem; margin: 0 0 0.5em 0; font-weight: 700; color: #0f172a;">Sisältö</p>
+        <ul style="padding-left: 22px; margin: 0 0 1em 0;">
+          <li style="margin-bottom: 6px;">Docker-arkkitehtuuri</li>
+          <li style="margin-bottom: 6px;">Docker Images</li>
+          <li style="margin-bottom: 6px;">Docker Containers</li>
+          <li style="margin-bottom: 6px;">Dockerfile</li>
+          <li style="margin-bottom: 6px;">Volumes</li>
+          <li style="margin-bottom: 6px;">Networks</li>
+          <li style="margin-bottom: 6px;">Monikonttisovellukset</li>
+        </ul>
+
+        <p style="font-size: 1rem; margin: 0 0 0.5em 0; font-weight: 700; color: #0f172a;">Harjoitukset</p>
+        <ul style="padding-left: 22px; margin: 0 0 1em 0;">
+          <li style="margin-bottom: 6px;">Docker-perusteet</li>
+          <li style="margin-bottom: 6px;">Dockerfilejen luonti</li>
+          <li style="margin-bottom: 6px;">Frontend- ja backend-sovellusten kontitus</li>
+          <li style="margin-bottom: 6px;">Docker-projekti</li>
+        </ul>
+
+        <p style="font-size: 1rem; margin: 0 0 0.5em 0; font-weight: 700; color: #0f172a;">Osaamistavoite</p>
+        <p style="font-size: 1rem; margin: 0;">Opiskelija osaa paketoida sovelluksia Docker-konteiksi ja käyttää niitä paikallisessa kehitysympäristössä.</p>
+      </div>
+
+      <div style="background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 8px; padding: 18px 20px; margin-top: 18px;">
+        <h3 style="margin-top: 0; font-size: 1.15rem; color: #0f172a; line-height: 1.3;"><span style="font-weight: 700;">Viikko 7</span>: Infrastructure as Code (Terraform)</h3>
+        <p style="font-size: 1rem; margin: 0 0 0.5em 0; font-weight: 700; color: #0f172a;">Sisältö</p>
+        <ul style="padding-left: 22px; margin: 0 0 1em 0;">
+          <li style="margin-bottom: 6px;">Infrastructure as Code -ajattelu</li>
+          <li style="margin-bottom: 6px;">Terraform-arkkitehtuuri</li>
+          <li style="margin-bottom: 6px;">Providers</li>
+          <li style="margin-bottom: 6px;">Resources</li>
+          <li style="margin-bottom: 6px;">Variables</li>
+          <li style="margin-bottom: 6px;">Outputs</li>
+          <li style="margin-bottom: 6px;">State-tiedostot</li>
+        </ul>
+
+        <p style="font-size: 1rem; margin: 0 0 0.5em 0; font-weight: 700; color: #0f172a;">Harjoitukset</p>
+        <ul style="padding-left: 22px; margin: 0 0 1em 0;">
+          <li style="margin-bottom: 6px;">AWS-resurssien luonti Terraformilla</li>
+          <li style="margin-bottom: 6px;">Aiemmin käsin luodun infrastruktuurin automatisointi</li>
+        </ul>
+
+        <p style="font-size: 1rem; margin: 0 0 0.5em 0; font-weight: 700; color: #0f172a;">Osaamistavoite</p>
+        <p style="font-size: 1rem; margin: 0;">Opiskelija ymmärtää Infrastructure as Code -periaatteet ja osaa luoda infrastruktuuria Terraformin avulla.</p>
+      </div>
+
+      <div style="background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 8px; padding: 18px 20px; margin-top: 18px;">
+        <h3 style="margin-top: 0; font-size: 1.15rem; color: #0f172a; line-height: 1.3;"><span style="font-weight: 700;">Viikkojen 7 ja 8 välissä</span></h3>
+        <p style="font-size: 1rem; margin: 0 0 0.5em 0; font-weight: 700;">Itsenäinen työskentely</p>
+        <p style="font-size: 1rem; margin: 0;">Opiskelijat viimeistelevät Terraform-harjoituksia ja valmistautuvat kurssin loppuosioon.</p>
+      </div>
+
+      <div style="background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 8px; padding: 18px 20px; margin-top: 18px;">
+        <h3 style="margin-top: 0; font-size: 1.15rem; color: #0f172a; line-height: 1.3;"><span style="font-weight: 700;">Viikko 8</span>: Kubernetes ja CI/CD</h3>
+        <p style="font-size: 1rem; margin: 0 0 0.5em 0; font-weight: 700; color: #0f172a;">Sisältö</p>
+        <p style="font-size: 1rem; margin: 0 0 0.5em 0; font-weight: 700;"><strong>Kubernetes</strong></p>
+        <ul style="padding-left: 22px; margin: 0 0 1em 0;">
+          <li style="margin-bottom: 6px;">Pods</li>
+          <li style="margin-bottom: 6px;">Deployments</li>
+          <li style="margin-bottom: 6px;">Services</li>
+          <li style="margin-bottom: 6px;">Ingress</li>
+          <li style="margin-bottom: 6px;">Konttien orkestrointi</li>
+        </ul>
+
+        <p style="font-size: 1rem; margin: 0 0 0.5em 0; font-weight: 700;"><strong>CI/CD</strong></p>
+        <ul style="padding-left: 22px; margin: 0 0 1em 0;">
+          <li style="margin-bottom: 6px;">DevOps-ajattelu</li>
+          <li style="margin-bottom: 6px;">Continuous Integration</li>
+          <li style="margin-bottom: 6px;">Continuous Delivery</li>
+          <li style="margin-bottom: 6px;">GitHub Actions</li>
+          <li style="margin-bottom: 6px;">Automaattiset build- ja tarkastusprosessit</li>
+        </ul>
+
+        <p style="font-size: 1rem; margin: 0 0 0.5em 0; font-weight: 700; color: #0f172a;">Harjoitukset</p>
+        <ul style="padding-left: 22px; margin: 0 0 1em 0;">
+          <li style="margin-bottom: 6px;">Sovelluksen käyttöönotto Kubernetes-ympäristöön</li>
+          <li style="margin-bottom: 6px;">GitHub Actions -putken rakentaminen</li>
+          <li style="margin-bottom: 6px;">Docker-kuvan automaattinen rakentaminen ja julkaisu</li>
+        </ul>
+
+        <p style="font-size: 1rem; margin: 0 0 0.5em 0; font-weight: 700; color: #0f172a;">Osaamistavoite</p>
+        <p style="font-size: 1rem; margin: 0;">Opiskelija ymmärtää modernin DevOps-putken rakenteen ja osaa hyödyntää automatisointia sovellusten julkaisuprosessissa.</p>
+      </div>
+
+      <h2 style="margin-top: 30px; font-size: 1.5rem; color: #1d4ed8; line-height: 1.3;">Kurssin punainen lanka</h2>
+      <p style="font-size: 1rem; margin: 0 0 1em 0;">Kurssi etenee seuraavan kehityspolun mukaisesti:</p>
+      <img
+        src="https://raw.githubusercontent.com/tjarvenpaa/cloud-devops-fundamentals/main/docs/images/timeline-IaC.png"
+        alt="Kurssin kehityspolku"
+        style="max-width: 100%; height: auto; display: block; margin: 20px auto; border: 1px solid #dbe2ea; border-radius: 8px; background: #fff;"
+      />
+      <p style="font-size: 1rem; margin: 0 0 1em 0;">
+        Kurssin lopussa opiskelija ymmärtää, kuinka moderni pilvipohjainen
+        sovellusympäristö suunnitellaan, toteutetaan, automatisoidaan ja
+        ylläpidetään DevOps-periaatteiden mukaisesti.
+      </p>
+
+      <div style="margin-top: 30px; padding-top: 14px; border-top: 2px solid #dbeafe;">
+        <h2 style="margin-top: 0; font-size: 1.5rem; color: #1d4ed8; line-height: 1.3;">Arviointi</h2>
+        <p style="font-size: 1rem; margin: 0;">
+          Arviointi tapahtuu asteikolla 0-5, perusteena tehdyt harjoitukset,
+          projektit, itsearviointi ja tentti. Tarkempi arviointi / pisteytys
+          päivittyy tähän myöhemmin.
+        </p>
+      </div>
+    </div>
+  </body>
+</html>
