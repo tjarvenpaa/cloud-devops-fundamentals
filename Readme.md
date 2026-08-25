@@ -1,105 +1,195 @@
-# AWS WordPress Lab
+# Cloud & DevOps Fundamentals
 
-Harjoituksessa asennetaan WordPress AWS EC2 -instanssille, luodaan tietokanta AWS RDS -palvelulla, tallennetaan kuvia AWS S3 -palveluun sekä otetaan HTTPS käyttöön Let's Encrypt -sertifikaatin avulla.
+Kurssin materiaalit, harjoitukset ja projektit pilvipalveluiden, konttiteknologioiden, Infrastructure as Code -ratkaisujen sekä DevOps-käytäntöjen opiskeluun.
 
-## Oppimistavoitteet
+Kurssi etenee vaiheittain pilvipalveluiden perusteista kohti modernia ohjelmisto- ja infrastruktuuriautomaatiota. Harjoitukset muodostavat yhtenäisen oppimispolun, jossa siirrytään manuaalisesta ympäristöjen hallinnasta kohti täysin automatisoituja ratkaisuja.
 
-Harjoituksen jälkeen opiskelija osaa:
+## Kurssin sisältö
 
-- Luoda ja hallita AWS EC2 -instansseja
-- Asentaa Apache HTTP Serverin
-- Asentaa ja konfiguroida WordPressin
-- Luoda ja käyttää AWS RDS MySQL -tietokantaa
-- Yhdistää WordPressin ulkoiseen tietokantaan
-- Tallentaa ja käyttää sisältöä AWS S3 -palvelussa
-- Konfiguroida HTTPS-yhteyden Let's Encryptillä
-- Ymmärtää verkkosovelluksen perusarkkitehtuurin AWS-ympäristössä
+### Viikko 1 - Pilvipalveluiden perusteet
 
-## Arkkitehtuuri
+- Cloud Computing -käsitteet
+- IaaS, PaaS ja SaaS
+- AWS Global Infrastructure
+- Shared Responsibility Model
+- AWS Pricing Calculator
 
-```text
-Internet
-    |
-    v
-+------------+
-| Route 53   |
-+------------+
-    |
-    v
-+------------+
-| EC2        |
-| Apache     |
-| WordPress  |
-+------------+
-    |
-    +---------> RDS MySQL
-    |
-    +---------> S3 Bucket
-```
+### Viikko 2 - Verkot ja tietoturva pilvessä
 
-## Sisältö
+- VPC
+- Subnetit
+- Reititys
+- Security Groups
+- IAM
+- Vähimmän oikeuden periaate
 
-- WordPress-asennus EC2-instanssille
-- AWS RDS -tietokannan käyttöönotto
-- AWS S3 -integraatio
-- HTTPS ja SSL-sertifikaatit
-- Raportointiohjeet
+### Viikko 3 - Tallennus ja tietokannat
 
-## Vaatimukset
+- Amazon S3
+- Amazon EBS
+- Amazon RDS
+- Tallennusratkaisujen vertailu
+- Kustannusten ja suorituskyvyn arviointi
 
-- AWS-tili
-- EC2-instanssi
-- RDS-tietokanta
-- S3 Bucket
-- Verkkotunnus (HTTPS-osuutta varten)
-- SSH-yhteys Linux-palvelimeen
+### Viikko 4 - Linux pilviympäristössä
 
-## Harjoituksen vaiheet
+- EC2-instanssit
+- SSH-yhteydet
+- Linux-palvelimen hallinta
+- EC2 Metadata Service (IMDSv2)
+- User Data ja Cloud-Init
 
-1. EC2-instanssin luonti
-2. Apache- ja PHP-asennus
-3. RDS-tietokannan luonti
-4. WordPressin asennus
-5. WordPressin yhdistäminen RDS-tietokantaan
-6. HTTPS:n käyttöönotto
-7. S3-kuvien käyttö WordPressissa
-8. Raportointi
+### Viikko 5 - Verkkosovelluksen käyttöönotto pilvessä
 
-## Hakemistorakenne
+- Apache
+- PHP
+- MariaDB
+- WordPress
+- HTTPS
+- AWS-palveluiden hyödyntäminen verkkosovelluksessa
 
-```text
-.
-├── README.md
-├── docs
-│   └── wordpress-installation.md
-└── LICENSE
-```
+### Viikko 6 - Docker ja sovellusten kontitus
 
-## Raportointi
+- Docker-arkkitehtuuri
+- Docker Images
+- Docker Containers
+- Dockerfile
+- Volumes
+- Networks
+- Monikonttisovellukset
 
-Palauta vähintään seuraavat kuvakaappaukset:
+### Viikko 7 - Infrastructure as Code
 
-- EC2-instanssi
-- RDS-instanssi
-- S3 Bucket
-- WordPressin etusivu
-- WordPress-hallintapaneeli
-- HTTPS-yhteys
-- Julkaisu, jossa näkyy S3:sta ladattu kuva
+- Terraform-perusteet
+- Providers
+- Resources
+- Variables
+- Outputs
+- Terraform State
+- AWS-infrastruktuurin automatisointi
 
-## Lisätietoja
+### Viikko 8 - Kubernetes ja CI/CD
 
-Virallinen WordPress-dokumentaatio:
-
-https://wordpress.org/documentation/
-
-AWS-dokumentaatio:
-
-https://docs.aws.amazon.com/
+- Kubernetes-perusteet
+- Pods
+- Deployments
+- Services
+- Ingress
+- GitHub Actions
+- Continuous Integration
+- Continuous Delivery
 
 ---
-## License
 
-This project is licensed under the MIT License.
+# Oppimispolku
 
-© Hämeen ammattikorkeakoulu / HAMK / Teemu Järvenpää
+Kurssilla rakennetaan vaiheittain kokonainen pilvipohjainen palveluympäristö.
+
+```text
+Pilvipalvelut
+    ↓
+Verkot ja tietoturva
+    ↓
+Linux-palvelimet
+    ↓
+Verkkosovellus AWS:ssä
+    ↓
+Docker
+    ↓
+Terraform
+    ↓
+Kubernetes
+    ↓
+CI/CD
+```
+
+Kurssin lopussa opiskelija osaa suunnitella, toteuttaa, automatisoida ja ylläpitää pilvipohjaista sovellusympäristöä DevOps-periaatteiden mukaisesti.
+
+---
+
+# Harjoitukset
+
+## AWS ja Linux
+
+| Harjoitus | Kuvaus |
+|-----------|---------|
+| EC2-instanssin käyttöönotto, SSH-yhteys ja metatiedot | EC2-palvelimen käyttöönotto, SSH-hallinta, IMDSv2 sekä User Data -automaatio |
+| VPC ja verkkosuunnittelu | Pilviverkon suunnittelu ja toteutus |
+| AWS-tallennuspalvelut | S3-, EBS- ja RDS-palveluiden käyttö |
+
+## Docker
+
+| Harjoitus | Kuvaus |
+|-----------|---------|
+| Docker Basics | Dockerin perusteet |
+| Dockerfile | Oman kuvan rakentaminen |
+| Monikonttisovellus | Sovelluksen jakaminen useaan konttiin |
+
+## Terraform
+
+| Harjoitus | Kuvaus |
+|-----------|---------|
+| AWS Infrastructure as Code | AWS-ympäristön automatisointi Terraformilla |
+| Docker-palvelun käyttöönotto Terraformilla | Docker-sovelluksen julkaiseminen AWS:ään |
+
+## DevOps
+
+| Harjoitus | Kuvaus |
+|-----------|---------|
+| GitHub Actions CI/CD | Docker-kuvan automaattinen rakentaminen |
+| Terraform osana CI/CD-putkea | Infrastruktuurin automatisoitu hallinta |
+
+---
+
+# Hakemistorakenne
+
+```text
+aws-cloud-wp-install/
+docker/
+terraform-aws-docker-deployment/
+kubernetes/
+devops-based-pipelines/
+```
+
+Jokainen hakemisto sisältää:
+
+- teoriaosuuden
+- harjoitukset
+- esimerkkiratkaisuja
+- mahdolliset lisätehtävät
+
+---
+
+# Esitietovaatimukset
+
+Opiskelijalta odotetaan:
+
+- Linux-perusteiden hallintaa
+- komentorivin käyttöä
+- Gitin perusteiden tuntemista
+- perustason verkkotekniikan ymmärrystä
+
+Aikaisempaa kokemusta AWS:stä, Dockerista, Kubernetesista tai Terraformista ei edellytetä.
+
+---
+
+# Lisenssi
+
+Kurssimateriaali julkaistaan avoimella lisenssillä.
+
+Katso tiedosto:
+
+```text
+LICENSE
+```
+
+lisätietoja varten.
+
+---
+
+# Tekijä
+
+Teemu Järvenpää  
+HAMK Hämeen ammattikorkeakoulu
+
+ICT ja pilvipalvelut

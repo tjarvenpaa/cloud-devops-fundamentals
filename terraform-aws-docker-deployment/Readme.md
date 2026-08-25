@@ -36,26 +36,87 @@ Harjoituksessa käytetään:
 
 ---
 
+# Terraform + Cloud-init + Docker 
+
+Harjoituksessa muodostetaan seuraava looginen rakenne:
+
+```mermaid
+sequenceDiagram
+
+    participant Student
+    participant Terraform
+    participant AWS
+    participant EC2
+    participant CloudInit
+    participant Docker
+
+    Student->>Terraform: terraform apply
+
+    Terraform->>AWS: Create infrastructure
+
+    AWS->>EC2: Launch instance
+
+    EC2->>CloudInit: Execute User Data
+
+    CloudInit->>Docker: Install Docker
+
+    CloudInit->>Docker: Pull image
+
+    CloudInit->>Docker: Start container
+
+    Docker-->>Student: Application available
+```
+
 # Harjoituksen kokonaisuus
 
 Terraformilla luodaan seuraava ympäristö:
 
-```text
-AWS
-│
-├── VPC
-│   └── Public Subnet
-│
-├── Internet Gateway
-│
-├── Route Table
-│
-├── Security Group
-│
-└── EC2
-    └── Docker Container
+```mermaid
+flowchart TB
+
+    Internet
+
+    subgraph AWS
+        VPC[VPC 10.0.0.0/16]
+
+        IGW[Internet Gateway]
+
+        Subnet[Public Subnet
+        10.0.1.0/24]
+
+        SG[Security Group
+        SSH 22
+        HTTP 80]
+
+        EC2[EC2 Instance]
+
+        Docker[Docker Container]
+    end
+
+    Internet --> IGW
+    IGW --> Subnet
+    VPC --> Subnet
+
+    Subnet --> SG
+    SG --> EC2
+    EC2 --> Docker
 ```
 
+Tämä tuottaa seuraavan kaltaisen rakenteen:
+
+```mermaid
+flowchart LR
+
+    User[User Browser]
+
+    subgraph AWS
+        EC2[EC2 Instance]
+        Docker[Docker Container]
+    end
+
+    User -->|HTTP 80| EC2
+    EC2 --> Docker
+```
 ---
 
 # Tehtävä 1: Luo Terraform-projekti
@@ -313,3 +374,27 @@ Vastaa README-tiedostossa seuraaviin kysymyksiin:
 # Seuraava vaihe
 
 Kurssin seuraavassa osiossa tätä infrastruktuuria hyödynnetään osana automatisoitua julkaisuprosessia, jossa GitHub Actions rakentaa Docker-kuvan, julkaisee sen Docker Hubiin ja käyttää Terraformia infrastruktuurin hallintaan.
+
+# Kurssin punainen lanka
+
+```mermaid
+flowchart LR
+
+    GitHub
+
+    Docker[Docker Build]
+
+    DockerHub[Docker Hub]
+
+    Terraform
+
+    AWS
+
+    App[Running Application]
+
+    GitHub --> Docker
+    Docker --> DockerHub
+    DockerHub --> Terraform
+    Terraform --> AWS
+    AWS --> App
+```
