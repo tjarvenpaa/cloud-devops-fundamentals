@@ -1,0 +1,26 @@
+# AWS Region
+region = "us-east-1"
+
+# EC2-instanssin tyyppi
+instance_type = "t3.micro"
+
+# AWS:ssa etukäteen luotu SSH-avainparin nimi
+ssh_key_name = "my-keypair"
+
+# Sovelluksen julkaisuportti
+application_port = 80
+
+# Docker Hub -image
+docker_image = "nginx:latest"
+
+# Verkkomääritykset
+vpc_cidr    = "10.0.0.0/16"
+subnet_cidr = "10.0.1.0/24"
+
+# Projektin nimi resurssien nimeämistä varten
+project_name = "terraform-webapp"
+
+# Tagit
+environment = "dev"
+
+owner = "opiskelija"
