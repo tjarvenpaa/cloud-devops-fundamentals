@@ -143,20 +143,26 @@ Kurssin lopussa opiskelija osaa suunnitella, toteuttaa, automatisoida ja ylläpi
 
 # Hakemistorakenne
 
-```text
-aws-cloud-wp-install/
-docker/
-terraform-aws-docker-deployment/
-kubernetes/
-devops-based-pipelines/
-```
+Kurssin tarkempi kuvaus ja oppimistavoitteet löytyvät [kurssin esittelystä](./docs/intro.md). Sen keskeiset projektit ja materiaalit on järjestetty aiheittain:
 
-Jokainen hakemisto sisältää:
+- [AWS: WordPress- ja Linux-harjoitukset](./aws-cloud-wp-install/Readme.md)
+  - [EC2-instanssi, Linux ja metatiedot](./aws-cloud-wp-install/docs/ec2-instance-and-linux.md)
+  - [WordPress AWS:ssä](./aws-cloud-wp-install/docs/wordpress-installation.md)
+- [Docker](./docker/README.md) – hakemistossa kuvataan vielä puuttuva sisältö ja sen suunnitelma.
+- [Terraform ja Docker AWS:ssä](./terraform-aws-docker-deployment/Readme.md)
+  - [Cloud-init-opas](./terraform-aws-docker-deployment/cloud-init-guide.md)
+  - [Terraformin aloituskoodi](./terraform-aws-docker-deployment/starter-code/main.tf)
+- [Kubernetes](./kubernetes/README.md) – hakemistossa kuvataan vielä puuttuva sisältö ja sen suunnitelma.
+- [DevOps ja CI/CD-putket](./devops-based-pipelines/Readme.md)
+  - [CI/CD:n johdanto](./devops-based-pipelines/docs/01-introfuction-to-cicd.md)
+  - [GitHub Actions](./devops-based-pipelines/docs/02-github-actions.md)
+  - [Terraform ja IaC](./devops-based-pipelines/docs/03-terraform-and-iac.md)
+  - [Kubernetes ja WordPress](./devops-based-pipelines/docs/04-kubernetes-and-wordpress.md)
+  - [Kokonainen CI/CD-putki](./devops-based-pipelines/docs/05-cicd-pipeline.md)
+  - [Tietoturva ja OIDC](./devops-based-pipelines/docs/06-security-and-oidc.md)
+  - [Havainnointi ja vianmääritys](./devops-based-pipelines/docs/07-observability-and-troubleshooting.md)
 
-- teoriaosuuden
-- harjoitukset
-- esimerkkiratkaisuja
-- mahdolliset lisätehtävät
+Kurssin yleiskuvaus ja aikajana löytyvät lisäksi [kurssin johdannosta](./docs/intro.md) ja [oppimispolun kuvasta](./docs/images/timeline-IaC.png).
 
 ---
 

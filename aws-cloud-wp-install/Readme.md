@@ -69,10 +69,10 @@ Internet
 
 ```text
 .
-├── README.md
+├── Readme.md
 ├── docs
+│   ├── ec2-instance-and-linux.md
 │   └── wordpress-installation.md
-└── LICENSE
 ```
 
 ## Raportointi
