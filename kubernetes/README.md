@@ -7,6 +7,7 @@ Tämän hakemiston [examples](./examples/)-kansio sisältää luentodiojen mukai
 - [Luento 1: Kubernetes-perusteet](./luento-1.md) — klusteri, Podit, Deploymentit, Servicet ja sovelluksen tilan tutkiminen.
 - [Luento 2: Namespace, tallennus, Ingress ja Helm](./luento-2.md) — resurssien eristys, pysyvä data, HTTP-reititys ja julkaisujen hallinta.
 - [WordPress Helm -esimerkki](./helm/wordpress/README.md) — WordPress, MariaDB, PVC ja `wordpress.colasloth.com`-Ingress.
+- [Kubernetes CI/CD -esimerkki](./ci-cd/README.md) — GitHub Actions CI, manuaalinen CD, RBAC ja resurssien request/limit-asetukset.
 
 ## Pod
 

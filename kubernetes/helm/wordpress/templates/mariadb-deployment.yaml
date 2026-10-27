@@ -35,13 +35,15 @@ spec:
             - name: MARIADB_ROOT_PASSWORD
               valueFrom:
                 secretKeyRef:
-                  name: {{ include "wordpress.fullname" . }}-database
+                  name: {{ .Values.mariadb.auth.existingSecret | default (printf "%s-database" (include "wordpress.fullname" .)) }}
                   key: mariadb-root-password
             - name: MARIADB_PASSWORD
               valueFrom:
                 secretKeyRef:
-                  name: {{ include "wordpress.fullname" . }}-database
+                  name: {{ .Values.mariadb.auth.existingSecret | default (printf "%s-database" (include "wordpress.fullname" .)) }}
                   key: mariadb-password
+          resources:
+            {{- toYaml .Values.mariadb.resources | nindent 12 }}
           readinessProbe:
             tcpSocket:
               port: mysql

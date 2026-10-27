@@ -1,0 +1,68 @@
+name: Kubernetes CI
+
+on:
+  pull_request:
+    paths:
+      - "kubernetes/**"
+      - ".github/workflows/kubernetes-ci.yml"
+      - ".github/workflows/kubernetes-deploy.yml"
+  push:
+    branches:
+      - main
+    paths:
+      - "kubernetes/**"
+      - ".github/workflows/kubernetes-ci.yml"
+      - ".github/workflows/kubernetes-deploy.yml"
+
+permissions:
+  contents: read
+
+jobs:
+  validate-wordpress-chart:
+    name: Validate WordPress Helm chart
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Set up Helm
+        uses: azure/setup-helm@v4
+        with:
+          version: v3.17.3
+
+      - name: Lint chart
+        run: |
+          helm lint kubernetes/helm/wordpress \
+            --set-string mariadb.auth.rootPassword=ci-only-root-password \
+            --set-string mariadb.auth.password=ci-only-wordpress-password
+
+      - name: Render and verify Kubernetes resources
+        shell: bash
+        run: |
+          rendered="$RUNNER_TEMP/wordpress-rendered.yaml"
+          helm template wordpress kubernetes/helm/wordpress \
+            --namespace wordpress \
+            --set-string mariadb.auth.rootPassword=ci-only-root-password \
+            --set-string mariadb.auth.password=ci-only-wordpress-password \
+            > "$rendered"
+
+          grep -Fq 'host: "wordpress.colasloth.com"' "$rendered"
+          grep -Fq 'cpu: 100m' "$rendered"
+          grep -Fq 'cpu: 500m' "$rendered"
+          grep -Fq 'memory: 128Mi' "$rendered"
+          grep -Fq 'memory: 256Mi' "$rendered"
+          grep -Fq 'memory: 512Mi' "$rendered"
+          grep -Fq 'memory: 1Gi' "$rendered"
+
+          helm template wordpress kubernetes/helm/wordpress \
+            --namespace wordpress \
+            --set mariadb.auth.existingSecret=wordpress-database-ci \
+            > "$RUNNER_TEMP/wordpress-external-secret.yaml"
+
+          if grep -Fq 'kind: Secret' "$RUNNER_TEMP/wordpress-external-secret.yaml"; then
+            echo "Chart rendered a Secret despite existingSecret being configured."
+            exit 1
+          fi
+          grep -Fq 'name: wordpress-database-ci' "$RUNNER_TEMP/wordpress-external-secret.yaml"
+
+          echo "Helm chart, external Secret mode, Ingress host, and resource requests/limits validated."

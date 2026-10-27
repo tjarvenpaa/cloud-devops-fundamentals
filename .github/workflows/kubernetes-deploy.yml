@@ -1,0 +1,130 @@
+name: Deploy WordPress to Kubernetes
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: wordpress-kubernetes-demo
+  cancel-in-progress: false
+
+jobs:
+  deploy:
+    name: Deploy WordPress
+    if: github.ref == 'refs/heads/main'
+    runs-on: ubuntu-latest
+    environment:
+      name: kubernetes-demo
+
+    env:
+      KUBECONFIG: ${{ runner.temp }}/kubeconfig
+      KUBE_CONFIG_B64: ${{ secrets.KUBE_CONFIG_B64 }}
+      MARIADB_ROOT_PASSWORD: ${{ secrets.MARIADB_ROOT_PASSWORD }}
+      MARIADB_PASSWORD: ${{ secrets.MARIADB_PASSWORD }}
+      RELEASE_NAMESPACE: wordpress
+      INGRESS_NAMESPACE: nginx-ingress
+      INGRESS_SERVICE: nginx-ingress-controller
+
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Set up Helm
+        uses: azure/setup-helm@v4
+        with:
+          version: v3.17.3
+
+      - name: Configure kubeconfig
+        shell: bash
+        run: |
+          set -euo pipefail
+          test -n "$KUBE_CONFIG_B64"
+          install -m 600 /dev/null "$KUBECONFIG"
+          printf '%s' "$KUBE_CONFIG_B64" | base64 --decode > "$KUBECONFIG"
+          kubectl config current-context
+          kubectl get service "$INGRESS_SERVICE" --namespace "$INGRESS_NAMESPACE"
+
+      - name: Create database Secret
+        shell: bash
+        run: |
+          set -euo pipefail
+          test -n "$MARIADB_ROOT_PASSWORD"
+          test -n "$MARIADB_PASSWORD"
+          secret_env="$RUNNER_TEMP/wordpress-database.env"
+          trap 'rm -f "$secret_env"' EXIT
+          umask 077
+          printf 'mariadb-root-password=%s\nmariadb-password=%s\n' \
+            "$MARIADB_ROOT_PASSWORD" \
+            "$MARIADB_PASSWORD" > "$secret_env"
+          kubectl create secret generic wordpress-database-ci \
+            --namespace "$RELEASE_NAMESPACE" \
+            --from-env-file="$secret_env" \
+            --dry-run=client \
+            --output=yaml \
+            | kubectl apply -f -
+
+      - name: Deploy chart
+        run: |
+          helm upgrade --install wordpress kubernetes/helm/wordpress \
+            --namespace "$RELEASE_NAMESPACE" \
+            --set mariadb.auth.existingSecret=wordpress-database-ci \
+            --wait \
+            --timeout 10m
+
+      - name: Verify rollout and Ingress
+        shell: bash
+        run: |
+          set -euo pipefail
+          kubectl rollout status deployment/wordpress-mariadb \
+            --namespace "$RELEASE_NAMESPACE" \
+            --timeout=5m
+          kubectl rollout status deployment/wordpress \
+            --namespace "$RELEASE_NAMESPACE" \
+            --timeout=5m
+          kubectl get ingress wordpress --namespace "$RELEASE_NAMESPACE"
+
+      - name: Smoke-test WordPress through Ingress
+        shell: bash
+        run: |
+          set -euo pipefail
+          kubectl port-forward \
+            --namespace "$INGRESS_NAMESPACE" \
+            "service/$INGRESS_SERVICE" \
+            18080:80 \
+            > "$RUNNER_TEMP/ingress-port-forward.log" 2>&1 &
+          port_forward_pid=$!
+          trap 'kill "$port_forward_pid" 2>/dev/null || true' EXIT
+
+          for attempt in {1..30}; do
+            if curl --silent \
+              --output /dev/null \
+              http://127.0.0.1:18080/; then
+              break
+            fi
+            sleep 2
+          done
+
+          response="$RUNNER_TEMP/wordpress-install.html"
+          status=$(curl --silent --show-error \
+            --output "$response" \
+            --write-out '%{http_code}' \
+            --header 'Host: wordpress.colasloth.com' \
+            http://127.0.0.1:18080/wp-admin/install.php)
+
+          test "$status" = "200"
+          if grep -qi 'Error establishing a database connection' "$response"; then
+            echo "WordPress reported a database connection error."
+            exit 1
+          fi
+          grep -qi 'WordPress' "$response"
+
+      - name: Remove temporary credentials
+        if: always()
+        shell: bash
+        run: |
+          rm -f "$KUBECONFIG" \
+            "$RUNNER_TEMP/wordpress-database.env" \
+            "$RUNNER_TEMP/wordpress-install.html" \
+            "$RUNNER_TEMP/ingress-port-forward.log"

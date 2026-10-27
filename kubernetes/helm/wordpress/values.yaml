@@ -12,6 +12,13 @@ wordpress:
     accessModes:
       - ReadWriteOnce
     size: 5Gi
+  resources:
+    requests:
+      cpu: 100m
+      memory: 128Mi
+    limits:
+      cpu: 500m
+      memory: 512Mi
 
 mariadb:
   image:
@@ -23,6 +30,7 @@ mariadb:
     username: wordpress
     rootPassword: ""
     password: ""
+    existingSecret: ""
   service:
     port: 3306
   persistence:
@@ -30,6 +38,13 @@ mariadb:
     accessModes:
       - ReadWriteOnce
     size: 5Gi
+  resources:
+    requests:
+      cpu: 100m
+      memory: 256Mi
+    limits:
+      cpu: 500m
+      memory: 1Gi
 
 ingress:
   enabled: true

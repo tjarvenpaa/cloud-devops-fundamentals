@@ -35,8 +35,10 @@ spec:
             - name: WORDPRESS_DB_PASSWORD
               valueFrom:
                 secretKeyRef:
-                  name: {{ include "wordpress.fullname" . }}-database
+                  name: {{ .Values.mariadb.auth.existingSecret | default (printf "%s-database" (include "wordpress.fullname" .)) }}
                   key: mariadb-password
+          resources:
+            {{- toYaml .Values.wordpress.resources | nindent 12 }}
           readinessProbe:
             tcpSocket:
               port: http
