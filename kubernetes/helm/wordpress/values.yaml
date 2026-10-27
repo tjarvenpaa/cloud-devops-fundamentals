@@ -1,0 +1,39 @@
+wordpress:
+  image:
+    repository: wordpress
+    tag: 6-apache
+    pullPolicy: IfNotPresent
+  replicaCount: 1
+  service:
+    type: ClusterIP
+    port: 80
+  persistence:
+    enabled: true
+    accessModes:
+      - ReadWriteOnce
+    size: 5Gi
+
+mariadb:
+  image:
+    repository: mariadb
+    tag: "11.4"
+    pullPolicy: IfNotPresent
+  auth:
+    database: wordpress
+    username: wordpress
+    rootPassword: ""
+    password: ""
+  service:
+    port: 3306
+  persistence:
+    enabled: true
+    accessModes:
+      - ReadWriteOnce
+    size: 5Gi
+
+ingress:
+  enabled: true
+  className: nginx
+  host: wordpress.colasloth.com
+  path: /
+  pathType: Prefix

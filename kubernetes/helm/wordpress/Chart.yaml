@@ -1,0 +1,6 @@
+apiVersion: v2
+name: wordpress
+description: WordPress and MariaDB demo with persistent storage and Ingress
+type: application
+version: 0.1.0
+appVersion: "6"
